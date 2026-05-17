@@ -383,10 +383,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Model Training](docs/TRAINING.md)
 - [Deployment Guide](docs/DEPLOYMENT.md)
 
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/ada-compliance-ml&type=Date)](https://star-history.com/#yourusername/ada-compliance-ml&Date)
-
 ---
 
 **Built with for accessible transportation infrastructure**
