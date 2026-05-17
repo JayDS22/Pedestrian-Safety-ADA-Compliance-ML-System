@@ -1,4 +1,4 @@
-# 🚶 AI-Powered Pedestrian Infrastructure Assessment & ADA Compliance System
+# AI-Powered Pedestrian Infrastructure Assessment & ADA Compliance System
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
@@ -7,7 +7,7 @@
 
 An intelligent system for automated pedestrian infrastructure assessment and ADA (Americans with Disabilities Act) compliance evaluation using computer vision and machine learning.
 
-## 🎯 Business Value
+## Business Value
 
 **Direct alignment with transportation planning needs:**
 - **ADAPT™ Product Integration**: Maps directly to accessibility compliance workflows
@@ -16,52 +16,41 @@ An intelligent system for automated pedestrian infrastructure assessment and ADA
 - **Data-Driven Prioritization**: Optimize remediation budgets based on traffic and severity
 - **Equity Focus**: Identify underserved areas lacking accessible infrastructure
 
-## 🏗️ System Architecture
+## System Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                     User Interface Layer                         │
-│            (Streamlit Dashboard / REST API / Mobile)            │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────────┐
-│                  Application Layer                               │
-│  ┌─────────────┐  ┌─────────────┐  ┌──────────────┐            │
-│  │   Image     │  │  Compliance │  │     Cost     │            │
-│  │ Processing  │  │   Engine    │  │  Estimation  │            │
-│  └─────────────┘  └─────────────┘  └──────────────┘            │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────────┐
-│                  AI/ML Model Layer                               │
-│  ┌──────────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │   YOLOv8 Object  │  │   OpenCV     │  │  Measurement    │   │
-│  │    Detection     │  │  Processing  │  │   Extraction    │   │
-│  └──────────────────┘  └──────────────┘  └─────────────────┘   │
-└──────────────────────┬──────────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────────────┐
-│                    Data Layer                                    │
-│  ┌────────────┐  ┌──────────────┐  ┌────────────────────────┐  │
-│  │ PostgreSQL │  │   PostGIS    │  │    Model Artifacts     │  │
-│  │    (DB)    │  │  (Spatial)   │  │  (Weights, Configs)    │  │
-│  └────────────┘  └──────────────┘  └────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
-
-          ┌───────────────────────────────────────┐
-          │     External Integrations             │
-          │  • GIS Platforms (ArcGIS, QGIS)      │
-          │  • Asset Management Systems           │
-          │  • Grant Application Portals          │
-          └───────────────────────────────────────┘
+```mermaid
+flowchart TB
+    UI[User Interface Layer<br/>Streamlit Dashboard / REST API / Mobile]
+    subgraph APP[Application Layer]
+        IP[Image Processing]
+        CE[Compliance Engine]
+        CS[Cost Estimation]
+    end
+    subgraph MOD[AI / ML Model Layer]
+        YOLO[YOLOv8 Object Detection]
+        CV[OpenCV Processing]
+        ME[Measurement Extraction]
+    end
+    subgraph DATA[Data Layer]
+        PG[(PostgreSQL DB)]
+        GIS[(PostGIS Spatial)]
+        ART[Model Artifacts<br/>Weights, Configs]
+    end
+    EXT[External Integrations<br/>GIS Platforms ArcGIS/QGIS<br/>Asset Management Systems<br/>Grant Application Portals]
+    UI --> APP --> MOD --> DATA
+    DATA --> EXT
 ```
 
 ### Component Details
 
 #### 1. **Detection Pipeline**
-```
-Input Image → YOLOv8 Detection → Object Classification → 
-Measurement Extraction → ADA Rule Engine → Compliance Score
+```mermaid
+flowchart LR
+    A[Input Image] --> B[YOLOv8 Detection]
+    B --> C[Object Classification]
+    C --> D[Measurement Extraction]
+    D --> E[ADA Rule Engine]
+    E --> F[Compliance Score]
 ```
 
 #### 2. **ADA Compliance Engine**
@@ -76,37 +65,37 @@ Measurement Extraction → ADA Rule Engine → Compliance Score
 - **Heatmap generation** for risk visualization
 - **Priority scoring** based on pedestrian traffic and severity
 
-## 🚀 Features
+## Features
 
 ### Core Capabilities
 
 #### 1. Computer Vision for Infrastructure Assessment
-- ✅ **Sidewalk Surface Quality**: Cracks, uneven surfaces, trip hazards
-- ✅ **Curb Ramp Compliance**: Slope angles, width, detectable warnings
-- ✅ **Pedestrian Crossings**: Crosswalk markings, signals, signage
-- ✅ **Obstruction Detection**: Poles, trees, temporary barriers
-- ✅ **Clear Path Analysis**: Minimum 36" continuous path verification
+- **Sidewalk Surface Quality**: Cracks, uneven surfaces, trip hazards
+- **Curb Ramp Compliance**: Slope angles, width, detectable warnings
+- **Pedestrian Crossings**: Crosswalk markings, signals, signage
+- **Obstruction Detection**: Poles, trees, temporary barriers
+- **Clear Path Analysis**: Minimum 36" continuous path verification
 
 #### 2. ADA Compliance Scoring Engine
-- ✅ **Automated Evaluation**: 20+ compliance checks against ADA standards
-- ✅ **Priority Scoring**: High-traffic areas prioritized first
-- ✅ **Cost Estimation**: Remediation cost calculation per violation
-- ✅ **Visual Evidence**: Annotated images with violation highlights
-- ✅ **Compliance Reports**: Export-ready documentation for grants
+- **Automated Evaluation**: 20+ compliance checks against ADA standards
+- **Priority Scoring**: High-traffic areas prioritized first
+- **Cost Estimation**: Remediation cost calculation per violation
+- **Visual Evidence**: Annotated images with violation highlights
+- **Compliance Reports**: Export-ready documentation for grants
 
 #### 3. Accessibility Risk Heatmaps
-- ✅ **Network Gap Analysis**: Identify disconnected accessible routes
-- ✅ **Density Mapping**: High non-compliance concentration areas
-- ✅ **Wheelchair Routing**: Connectivity assessment for mobility devices
-- ✅ **Traffic Integration**: Priority based on pedestrian volume data
+- **Network Gap Analysis**: Identify disconnected accessible routes
+- **Density Mapping**: High non-compliance concentration areas
+- **Wheelchair Routing**: Connectivity assessment for mobility devices
+- **Traffic Integration**: Priority based on pedestrian volume data
 
 #### 4. Interactive Dashboard
-- ✅ **Real-time Analysis**: Upload → Results in < 3 seconds
-- ✅ **Filtering Options**: By violation type, severity, cost, location
-- ✅ **Export Capabilities**: PDF reports, CSV data, GIS shapefiles
-- ✅ **Budget Planning**: Cost aggregation and timeline estimation
+- **Real-time Analysis**: Upload → Results in < 3 seconds
+- **Filtering Options**: By violation type, severity, cost, location
+- **Export Capabilities**: PDF reports, CSV data, GIS shapefiles
+- **Budget Planning**: Cost aggregation and timeline estimation
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
@@ -116,7 +105,7 @@ Measurement Extraction → ADA Rule Engine → Compliance Score
 | Violation Types | 15+ | **20** |
 | False Positive Rate | < 10% | **6.8%** |
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Core Technologies
 - **Deep Learning**: PyTorch 2.0+, YOLOv8 (Ultralytics)
@@ -134,7 +123,7 @@ Measurement Extraction → ADA Rule Engine → Compliance Score
 - **Containerization**: Docker, docker-compose
 - **Monitoring**: Prometheus, Grafana
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 ```bash
@@ -186,7 +175,7 @@ streamlit run app.py
 uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 Create a `.env` file:
@@ -211,7 +200,7 @@ AWS_SECRET_ACCESS_KEY=your_secret
 S3_BUCKET_NAME=ada-compliance-data
 ```
 
-## 📖 Usage Examples
+## Usage Examples
 
 ### Python API
 
@@ -267,7 +256,7 @@ ada-compliance heatmap --bounds "34.05,-118.25,34.10,-118.20" --output map.html
 ada-compliance export --format shapefile --output violations.shp
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 # Run all tests
@@ -283,7 +272,7 @@ pytest tests/test_compliance_engine.py -v
 pytest tests/integration/ --slow
 ```
 
-## 📊 Sample Results
+## Sample Results
 
 ### Example Output
 ```json
@@ -308,29 +297,29 @@ pytest tests/integration/ --slow
 }
 ```
 
-## 🗺️ ADA Standards Covered
+## ADA Standards Covered
 
 ### Curb Ramps (ADAAG 406)
-- ✅ Running slope: 1:12 (8.33%) maximum
-- ✅ Cross slope: 1:48 (2.08%) maximum
-- ✅ Width: 36 inches minimum
-- ✅ Detectable warnings: Required
-- ✅ Landing: 36" x 36" minimum
+- Running slope: 1:12 (8.33%) maximum
+- Cross slope: 1:48 (2.08%) maximum
+- Width: 36 inches minimum
+- Detectable warnings: Required
+- Landing: 36" x 36" minimum
 
 ### Sidewalks (ADAAG 403)
-- ✅ Width: 36 inches minimum continuous
-- ✅ Cross slope: 2% maximum
-- ✅ Running slope: 5% maximum (8.33% if ramp)
-- ✅ Surface: Firm, stable, slip-resistant
-- ✅ Openings: 0.5 inch maximum
+- Width: 36 inches minimum continuous
+- Cross slope: 2% maximum
+- Running slope: 5% maximum (8.33% if ramp)
+- Surface: Firm, stable, slip-resistant
+- Openings: 0.5 inch maximum
 
 ### Crosswalks (PROWAG R306)
-- ✅ Detectable warning surfaces
-- ✅ Accessible pedestrian signals
-- ✅ Crosswalk markings visibility
-- ✅ Curb ramp alignment
+- Detectable warning surfaces
+- Accessible pedestrian signals
+- Crosswalk markings visibility
+- Curb ramp alignment
 
-## 🎯 Roadmap
+## Roadmap
 
 ### Phase 1 (Current)
 - [x] Core detection models (YOLOv8)
@@ -356,7 +345,7 @@ pytest tests/integration/ --slow
 - [ ] Multi-language support
 - [ ] Climate impact analysis
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
@@ -376,28 +365,28 @@ black ada_compliance/
 mypy ada_compliance/
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Ultralytics YOLOv8**: State-of-the-art object detection
 - **OpenCV**: Computer vision processing
 - **ADA Standards**: U.S. Access Board guidelines
 - **Transportation Research**: FHWA, TRB research on accessibility
 
-## 📚 Documentation
+## Documentation
 
 - [API Documentation](docs/API.md)
 - [User Guide](docs/USER_GUIDE.md)
 - [Model Training](docs/TRAINING.md)
 - [Deployment Guide](docs/DEPLOYMENT.md)
 
-## 🌟 Star History
+## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=yourusername/ada-compliance-ml&type=Date)](https://star-history.com/#yourusername/ada-compliance-ml&Date)
 
 ---
 
-**Built with ❤️ for accessible transportation infrastructure**
+**Built with for accessible transportation infrastructure**
